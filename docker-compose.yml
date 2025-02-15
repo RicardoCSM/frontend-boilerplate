@@ -1,0 +1,20 @@
+version: "3.7"
+
+networks:
+  proxy:
+    external: true
+  boilerplate:
+    external: true
+
+services:
+  frontend-boilerplate:
+    container_name: frontend-boilerplate
+    build:
+      context: .
+      args:
+        NODE_VERSION: ${NODE_VERSION}
+    ports:
+      - "${NODE_PORT:-3000}:3000"
+    networks:
+      - proxy
+      - boilerplate
