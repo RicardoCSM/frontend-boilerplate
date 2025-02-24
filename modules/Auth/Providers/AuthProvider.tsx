@@ -29,13 +29,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const router = useRouter();
 
   const refreshUserData = useCallback(async () => {
-    if (
-      window.location.pathname.startsWith("/auth") ||
-      window.location.pathname.startsWith("/questionnaires")
-    ) {
-      return;
-    }
-
     try {
       const user = await getCurrentUserInfo();
       if (user) {
@@ -45,6 +38,13 @@ export function AuthProvider({ children }: AuthProviderProps) {
         throw new Error("Sessão inválida");
       }
     } catch {
+      if (
+        window.location.pathname.startsWith("/auth") ||
+        window.location.pathname.startsWith("/questionnaires")
+      ) {
+        return;
+      }
+
       await clearToken();
       setIsAuthenticated(false);
       router.push("/auth/login");

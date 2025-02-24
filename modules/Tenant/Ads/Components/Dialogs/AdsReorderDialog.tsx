@@ -42,7 +42,6 @@ const AdsReorderDialog: React.FC<AdsReorderDialogProps> = ({
   });
 
   useEffect(() => {
-    console.log(ads);
     form.reset({
       ids: ads.map((ad) => ad.id) || [],
     });

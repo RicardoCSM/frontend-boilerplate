@@ -30,7 +30,6 @@ const DeleteAdsDialog: React.FC<DeleteAdsDialogProps> = ({
 }) => {
   const deleteAds = async () => {
     try {
-      console.log(ads);
       const response = await adsService.delete(ads.id);
       if (response.status === 204) {
         await refreshAds();

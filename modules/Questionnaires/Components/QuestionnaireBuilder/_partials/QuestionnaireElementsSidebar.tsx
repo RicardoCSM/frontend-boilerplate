@@ -55,6 +55,9 @@ const QuestionnaireElementsSidebar = () => {
         <SidebarBtnElement
           questionnaireElement={QuestionnaireElements.SwitchField}
         />
+        <SidebarBtnElement
+          questionnaireElement={QuestionnaireElements.FileUploadField}
+        />
       </div>
     </div>
   );

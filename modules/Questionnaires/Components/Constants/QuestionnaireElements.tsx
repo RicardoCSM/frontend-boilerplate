@@ -12,6 +12,7 @@ import { SelectFieldQuestionnaireElement } from "../QuestionnaireBuilder/Fields/
 import { CheckboxFieldQuestionnaireElement } from "../QuestionnaireBuilder/Fields/CheckboxField";
 import { SwitchFieldQuestionnaireElement } from "../QuestionnaireBuilder/Fields/SwitchField";
 import { DateRangeFieldQuestionnaireElement } from "../QuestionnaireBuilder/Fields/DateRangeField";
+import { FileUploadFieldQuestionnaireElement } from "../QuestionnaireBuilder/Fields/FileUploadField";
 
 export type ElementsType =
   | "TextField"
@@ -26,7 +27,8 @@ export type ElementsType =
   | "SelectField"
   | "CheckboxField"
   | "SwitchField"
-  | "DateRangeField";
+  | "DateRangeField"
+  | "FileUploadField";
 
 export const VisualElements: ElementsType[] = [
   "TextField",
@@ -46,6 +48,7 @@ export const InputElements: ElementsType[] = [
   "CheckboxField",
   "SwitchField",
   "DateRangeField",
+  "FileUploadField",
 ];
 
 export type SubmitFunction = (key: string, value: string) => void;
@@ -113,4 +116,5 @@ export const QuestionnaireElements: QuestionnaireElementsType = {
   CheckboxField: CheckboxFieldQuestionnaireElement,
   SwitchField: SwitchFieldQuestionnaireElement,
   DateRangeField: DateRangeFieldQuestionnaireElement,
+  FileUploadField: FileUploadFieldQuestionnaireElement,
 };

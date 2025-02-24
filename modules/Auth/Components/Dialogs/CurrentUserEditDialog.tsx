@@ -61,9 +61,7 @@ const CurrentUserEditDialog: React.FC<CurrentUserEditDialogProps> = ({
   });
   const { refreshUserData } = useAuth();
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [avatarPreview, setAvatarPreview] = useState<string>(
-    user.avatar ?? "",
-  );
+  const [avatarPreview, setAvatarPreview] = useState<string>(user.avatar ?? "");
 
   async function onSubmit(values: EditCurrentUserSchema) {
     setIsLoading(true);
@@ -77,8 +75,7 @@ const CurrentUserEditDialog: React.FC<CurrentUserEditDialogProps> = ({
       const updatedData = Object.fromEntries(
         Object.entries(values).filter(
           ([key, value]) =>
-            !excludedKeys.includes(key) &&
-            value !== user[key as keyof User],
+            !excludedKeys.includes(key) && value !== user[key as keyof User],
         ),
       ) as Partial<EditCurrentUserSchema>;
 
@@ -91,10 +88,7 @@ const CurrentUserEditDialog: React.FC<CurrentUserEditDialogProps> = ({
       const response = await usersService.update(user.id, updatedData);
       if (response.status === 200) {
         if (values.avatar && values.avatar[0]) {
-          await usersService.changeAvatar(
-            response.data.id,
-            values.avatar[0],
-          );
+          await usersService.changeAvatar(response.data.id, values.avatar[0]);
         }
 
         form.setValue("name", values.name);
